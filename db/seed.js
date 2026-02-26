@@ -10,7 +10,7 @@ await db.end();
 console.log("🌱 Database seeded.");
 
 async function seed() {
-  for (let i = 1; i <= 5; i++) {
+  for (let i = 1; i <= 10; i++) {
     let playlist = await createPlaylist("Playlist " + i, "Description " + i);
     for (let i = 1; i <= 15; i++) {
       let track = await createTrack("Track " + i, 100 + i);

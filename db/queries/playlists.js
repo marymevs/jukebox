@@ -42,7 +42,7 @@ export async function getTracksByPlaylistId(id) {
     tracks
     JOIN playlists_tracks ON tracks.id = playlists_tracks.track_id
     JOIN playlists ON playlists_tracks.playlist_id = playlists.id
-  WHERE playlists.id = 3;
+  WHERE playlists.id = $1;
   `;
 
   const { rows: tracks } = await db.query(sql, [id]);

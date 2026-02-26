@@ -11,6 +11,13 @@ tracksRouter.get("/", async (req, res) => {
 });
 
 tracksRouter.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  if (!Number(id)) {
+    res.status(400).send("id is not a number");
+  }
   const track = await getTrackById(id);
+  if (!track) {
+    res.status(404).send("track not found");
+  }
   res.send(track);
 });
